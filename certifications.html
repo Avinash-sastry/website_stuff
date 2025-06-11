@@ -96,5 +96,21 @@
     const savedTheme = localStorage.getItem('theme');if (savedTheme === 'dark') {body.classList.add('dark-mode');}
     themeToggle.addEventListener('click', () => {body.classList.toggle('dark-mode');if (body.classList.contains('dark-mode')) {localStorage.setItem('theme', 'dark');} else {localStorage.setItem('theme', 'light');}});
   </script>
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>
+  <script>
+    const konamiCode = ['ArrowUp', 'ArrowUp', 'ArrowDown', 'ArrowDown', 'ArrowLeft', 'ArrowRight', 'ArrowLeft', 'ArrowRight', 'b', 'a'];
+    let konamiIndex = 0;
+    document.addEventListener('keydown', (e) => {
+        if (e.key === konamiCode[konamiIndex]) {
+            konamiIndex++;
+            if (konamiIndex === konamiCode.length) {
+                confetti({ particleCount: 150, spread: 90, origin: { y: 0.6 } });
+                konamiIndex = 0;
+            }
+        } else {
+            konamiIndex = 0;
+        }
+    });
+  </script>
 </body>
 </html>
