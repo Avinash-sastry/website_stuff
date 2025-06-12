@@ -590,8 +590,6 @@
 </head>
 
 <body class="hero-image-active">
-
-    <!-- Header -->
     <header>
         <div class="container header-content">
             <a href="index.html" class="logo"><span class="typewriter">Avinash Sastry</span></a>
@@ -603,22 +601,21 @@
                     <li><a href="index.html#contact">Contact</a></li>
                 </ul>
             </nav>
-            <button id="theme-toggle" title="Toggle theme">
-                <i id="moon-icon" class="fas fa-moon"></i>
-                <i id="sun-icon" class="fas fa-sun"></i>
-            </button>
+            <button id="theme-toggle" title="Toggle theme"><i id="moon-icon" class="fas fa-moon"></i><i id="sun-icon"
+                    class="fas fa-sun"></i></button>
         </div>
     </header>
 
-    <!-- Hero Section -->
     <section class="hero">
         <div class="container hero-content">
             <h1>About Me</h1>
-            <p>Greetings! I'm Avinash Sastry, an enthusiastic and dedicated ECE student with a passion for VLSI design. My academic journey has equipped me with a solid foundation in Chemistry and Physics, and I am eager to leverage my skills and knowledge to contribute meaningfully to the field of Electronics and Communication.</p>
+            <p>Greetings! I'm Avinash Sastry, an enthusiastic and dedicated ECE student with a passion for VLSI design.
+                My academic journey has equipped me with a solid foundation in Chemistry and Physics , and I am eager to
+                leverage my skills and knowledge to contribute meaningfully to the field of Electronics and
+                Communication.</p>
         </div>
     </section>
 
-    <!-- Highlights Section -->
     <section id="work" class="work">
         <div class="container">
             <div class="section-header" data-aos="fade-up">
@@ -630,35 +627,38 @@
                     <div class="project-img project-gradient-1"><i class="fas fa-graduation-cap"></i></div>
                     <div class="project-info">
                         <h3>Academic Journey</h3>
-                        <p>My B.Tech in ECE at SRMIST, consistently achieving high grades and building a strong academic foundation.</p>
+                        <p>My B.Tech in ECE at SRMIST, consistently achieving high grades and building a strong academic
+                            foundation.</p>
                     </div>
                 </div>
                 <div class="project-card" data-aos="fade-up" data-aos-delay="100" id="skills-card">
                     <div class="project-img project-gradient-2"><i class="fas fa-cogs"></i></div>
                     <div class="project-info">
                         <h3>Skills & Proficiencies</h3>
-                        <p>A blend of technical programming knowledge and strong multilingual communication capabilities.</p>
+                        <p>A blend of technical programming knowledge and strong multilingual communication capabilities.
+                        </p>
                     </div>
                 </div>
                 <div class="project-card" data-aos="fade-up" data-aos-delay="200" id="extracurricular-card">
                     <div class="project-img project-gradient-3"><i class="fas fa-trophy"></i></div>
                     <div class="project-info">
                         <h3>Extracurriculars</h3>
-                        <p>Well-rounded experience including NCC, competitive school sports, and participation in theatre.</p>
+                        <p>Well-rounded experience including NCC, competitive school sports, and participation in
+                            theatre.</p>
                     </div>
                 </div>
                 <div class="project-card" data-aos="fade-up" data-aos-delay="300">
                     <div class="project-img project-gradient-4"><i class="fas fa-sitemap"></i></div>
                     <div class="project-info">
                         <h3>Professional Memberships</h3>
-                        <p>An active member of the Institute of Electrical and Electronics Engineers (IEEE), engaging with the professional community.</p>
+                        <p>An active member of the Institute of Electrical and Electronics Engineers (IEEE), engaging
+                            with the professional community.</p>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Contact Section -->
     <section id="contact" class="contact">
         <div class="container">
             <div class="contact-grid">
@@ -689,8 +689,7 @@
                     </div>
                 </div>
                 <div class="contact-form" data-aos="fade-left">
-                    <form action="https://formspree.io/f/xblyoykb" method="POST">
-                        <input type="hidden" name="_next" value="https://avinash-sastry-007.netlify.app/thank-you.html">
+                    <form id="contact-form">
                         <input type="text" name="name" placeholder="Your Name" required>
                         <input type="email" name="email" placeholder="Your Email" required>
                         <textarea name="message" placeholder="Your Message" required></textarea>
@@ -701,10 +700,8 @@
         </div>
     </section>
 
-    <!-- Modals -->
     <div id="academic-modal" class="modal">
-        <div class="modal-content">
-            <span class="close-button">×</span>
+        <div class="modal-content"><span class="close-button">×</span>
             <h2>Academic Journey</h2>
             <div class="modal-section">
                 <h3>B.Tech (Electronics and Communication)</h3>
@@ -735,8 +732,7 @@
         </div>
     </div>
     <div id="skills-modal" class="modal">
-        <div class="modal-content">
-            <span class="close-button">×</span>
+        <div class="modal-content"><span class="close-button">×</span>
             <h2>Skills & Proficiencies</h2>
             <div class="modal-section">
                 <h3>Technical Skills</h3>
@@ -841,8 +837,7 @@
         </div>
     </div>
     <div id="extracurricular-modal" class="modal">
-        <div class="modal-content">
-            <span class="close-button">×</span>
+        <div class="modal-content"><span class="close-button">×</span>
             <h2>Extracurriculars</h2>
             <div class="modal-section">
                 <h3>NCC</h3>
@@ -868,7 +863,6 @@
         </div>
     </div>
 
-    <!-- Footer -->
     <footer>
         <div class="container">
             <div class="social-links">
@@ -878,8 +872,7 @@
             <p>© 2024 Avinash Sastry. All rights reserved.</p>
         </div>
     </footer>
-
-    <!-- Scripts -->
+    
     <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>
     <script>
@@ -955,6 +948,36 @@
             } else {
                 konamiIndex = 0;
             }
+        });
+
+        const contactForm = document.getElementById('contact-form');
+        contactForm.addEventListener('submit', function(event) {
+            event.preventDefault();
+
+            const formData = new FormData(contactForm);
+            const formspreeEndpoint = 'https://formspree.io/f/xblyoykb';
+
+            fetch(formspreeEndpoint, {
+                method: 'POST',
+                body: formData,
+                headers: {
+                    'Accept': 'application/json'
+                }
+            }).then(response => {
+                if (response.ok) {
+                    window.location.href = '/thank-you.html';
+                } else {
+                    response.json().then(data => {
+                        if (Object.hasOwn(data, 'errors')) {
+                            alert(data["errors"].map(error => error["message"]).join(", "));
+                        } else {
+                            alert('Oops! There was a problem submitting your form');
+                        }
+                    });
+                }
+            }).catch(error => {
+                alert('Oops! There was a network problem.');
+            });
         });
     </script>
 </body>
