@@ -37,6 +37,47 @@
         });
     });
 
+    
+
+   /* ==========================================================================
+       2. HERO PARAGRAPH TYPEWRITER EFFECT (CORRECTED)
+       ========================================================================== */
+    // This event fires when the initial HTML document has been completely loaded and parsed.
+    document.addEventListener('DOMContentLoaded', () => {
+        const paragraphElement = document.getElementById('hero-paragraph-typewriter');
+
+        // Only run this code if we are on the home page (where the element exists)
+        if (!paragraphElement) {
+            return;
+        }
+
+        const textToType = paragraphElement.textContent.trim();
+        let animationStarted = false;
+
+        function startTypewriter() {
+            if (animationStarted) return;
+            animationStarted = true;
+
+            paragraphElement.textContent = ''; // Clear the paragraph initially
+
+            let i = 0;
+            const typingSpeed = 25; // Speed in milliseconds
+
+            function type() {
+                if (i < textToType.length) {
+                    paragraphElement.textContent += textToType.charAt(i);
+                    i++;
+                    setTimeout(type, typingSpeed);
+                }
+            }
+            type(); // Start the animation
+        }
+
+        // Start the animation after the page transition has finished.
+        setTimeout(startTypewriter, 500);
+    });
+
+
     /* ==========================================================================
        Theme Toggle Logic
        ========================================================================== */
