@@ -56,6 +56,8 @@
   </style>
 </head>
 <body>
+  
+  <!-- Header -->
   <header>
     <div class="container header-content">
       <a href="index.html" class="logo"><span class="typewriter">Avinash Sastry</span></a>
@@ -70,6 +72,8 @@
       <button id="theme-toggle" title="Toggle theme"><i id="moon-icon" class="fas fa-moon"></i><i id="sun-icon" class="fas fa-sun"></i></button>
     </div>
   </header>
+  
+  <!-- Main Content -->
   <main>
     <section id="certifications" class="work">
       <div class="container">
@@ -88,28 +92,45 @@
       </div>
     </section>
   </main>
-  <footer><div class="container"><div class="social-links"><a href="https://github.com/Avinash-sastry" target="_blank" title="GitHub"><i class="fab fa-github"></i></a><a href="https://www.linkedin.com/in/avinash-sastry-b784342a8/" target="_blank" title="LinkedIn"><i class="fab fa-linkedin-in"></i></a></div><p>© 2024 Avinash Sastry. All rights reserved.</p></div></footer>
+  
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <div class="social-links">
+        <a href="https://github.com/Avinash-sastry" target="_blank" title="GitHub"><i class="fab fa-github"></i></a>
+        <a href="https://www.linkedin.com/in/avinash-sastry-b784342a8/" target="_blank" title="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+      </div>
+      <p>© 2024 Avinash Sastry. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
   <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
-  <script>AOS.init({once: true,duration: 600,easing: 'ease-in-out',});</script>
-  <script>
-    const themeToggle = document.getElementById('theme-toggle');const body = document.body;
-    const savedTheme = localStorage.getItem('theme');if (savedTheme === 'dark') {body.classList.add('dark-mode');}
-    themeToggle.addEventListener('click', () => {body.classList.toggle('dark-mode');if (body.classList.contains('dark-mode')) {localStorage.setItem('theme', 'dark');} else {localStorage.setItem('theme', 'light');}});
-  </script>
   <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>
   <script>
+    // Initialize AOS
+    AOS.init({ once: true, duration: 600, easing: 'ease-in-out' });
+
+    // Theme Toggle
+    const themeToggle = document.getElementById('theme-toggle');
+    const body = document.body;
+    const savedTheme = localStorage.getItem('theme');
+    if (savedTheme === 'dark') { body.classList.add('dark-mode'); }
+    themeToggle.addEventListener('click', () => { body.classList.toggle('dark-mode'); if (body.classList.contains('dark-mode')) { localStorage.setItem('theme', 'dark'); } else { localStorage.setItem('theme', 'light'); } });
+
+    // Konami Code Easter Egg
     const konamiCode = ['ArrowUp', 'ArrowUp', 'ArrowDown', 'ArrowDown', 'ArrowLeft', 'ArrowRight', 'ArrowLeft', 'ArrowRight', 'b', 'a'];
     let konamiIndex = 0;
     document.addEventListener('keydown', (e) => {
-        if (e.key === konamiCode[konamiIndex]) {
-            konamiIndex++;
-            if (konamiIndex === konamiCode.length) {
-                confetti({ particleCount: 150, spread: 90, origin: { y: 0.6 } });
-                konamiIndex = 0;
-            }
-        } else {
-            konamiIndex = 0;
+      if (e.key === konamiCode[konamiIndex]) {
+        konamiIndex++;
+        if (konamiIndex === konamiCode.length) {
+          confetti({ particleCount: 150, spread: 90, origin: { y: 0.6 } });
+          konamiIndex = 0;
         }
+      } else {
+        konamiIndex = 0;
+      }
     });
   </script>
 </body>

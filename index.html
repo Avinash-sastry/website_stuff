@@ -7,103 +7,135 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
   <style>
-    :root {--text: #1a1a1a;--background: #fafafa;--accent: #2563eb;--transition: all 0.3s ease;}
-    * {margin: 0;padding: 0;box-sizing: border-box;}
-    body {font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;line-height: 1.6;color: var(--text);background-color: var(--background);overflow-x: hidden;transition: background-color 0.3s ease, color 0.3s ease;}
-    h1, h2, h3, h4 {font-weight: 600;line-height: 1.2;}
-    p {margin-bottom: 1.5rem;}
-    .container {max-width: 1200px;margin: 0 auto;padding: 0 2rem;}
-    body.dark-mode {--text: #e5e7eb;--background: #111827;--accent: #38bdf8;}
-    body.dark-mode .project-card {background: #1f2937;box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);}
-    body.dark-mode .contact {background: #1f2937;}
-    body.dark-mode header.scrolled {background: rgba(17, 24, 39, 0.9);}
-    body.dark-mode input,body.dark-mode textarea {background-color: #374151;border-color: #4b5563;color: var(--text);}
-    body.dark-mode input::placeholder,body.dark-mode textarea::placeholder {color: #9ca3af;}
-    body.dark-mode .btn:hover {background: #0ea5e9;}
-    body.dark-mode footer {border-top-color: #374151;}
-    header {position: fixed;top: 0;width: 100%;padding: 2rem 0;background: transparent;z-index: 100;transition: background-color 0.4s ease;}
-    header.scrolled {background: rgba(250, 250, 250, 0.95);backdrop-filter: blur(10px);}
-    .header-content {display: grid;grid-template-columns: 1fr auto 1fr;align-items: center;gap: 2rem;}
-    .logo {font-size: 1.25rem;font-weight: 600;justify-self: start; text-decoration: none; color: var(--text);}
-    .typewriter {display: inline-block;overflow: hidden;border-right: .15em solid var(--accent);white-space: nowrap;letter-spacing: .1em;animation: typing 2s steps(14, end), blink-caret .75s step-end infinite;}
-    @keyframes typing {from { width: 0 } to { width: 100% }}
-    @keyframes blink-caret {from, to { border-color: transparent } 50% { border-color: var(--accent); }}
+    :root {
+      --text: #1a1a1a;
+      --background: #fafafa;
+      --accent: #2563eb;
+      --transition: all 0.3s ease;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      line-height: 1.6;
+      color: var(--text);
+      background-color: var(--background);
+      overflow-x: hidden;
+      transition: background-color 0.3s ease, color 0.3s ease;
+    }
+    h1, h2, h3, h4 { font-weight: 600; line-height: 1.2; }
+    p { margin-bottom: 1.5rem; }
+    .container { max-width: 1200px; margin: 0 auto; padding: 0 2rem; }
+
+    /* Dark Mode */
+    body.dark-mode { --text: #e5e7eb; --background: #111827; --accent: #38bdf8; }
+    body.dark-mode .project-card { background: #1f2937; box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2); }
+    body.dark-mode .contact { background: #1f2937; }
+    body.dark-mode header.scrolled { background: rgba(17, 24, 39, 0.9); }
+    body.dark-mode input, body.dark-mode textarea { background-color: #374151; border-color: #4b5563; color: var(--text); }
+    body.dark-mode input::placeholder, body.dark-mode textarea::placeholder { color: #9ca3af; }
+    body.dark-mode .btn:hover { background: #0ea5e9; }
+    body.dark-mode footer { border-top-color: #374151; }
+
+    /* Header */
+    header { position: fixed; top: 0; width: 100%; padding: 2rem 0; background: transparent; z-index: 100; transition: background-color 0.4s ease; }
+    header.scrolled { background: rgba(250, 250, 250, 0.95); backdrop-filter: blur(10px); }
+    .header-content { display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; gap: 2rem; }
+    .logo { font-size: 1.25rem; font-weight: 600; justify-self: start; text-decoration: none; color: var(--text); }
+    nav { justify-self: center; }
+    nav ul { display: flex; list-style: none; gap: 2.5rem; }
+    nav a { text-decoration: none; color: var(--text); font-weight: 500; font-size: 1rem; position: relative; padding: 0.25rem 0; }
+    nav a::after { content: ''; position: absolute; bottom: -5px; left: 0; width: 0; height: 2px; background: var(--accent); transition: var(--transition); }
+    nav a:hover::after, nav a.active::after { width: 100%; }
+    nav a.active { font-weight: 700; color: var(--accent); }
+    body.hero-image-active header:not(.scrolled) .logo,
+    body.hero-image-active header:not(.scrolled) nav a { color: white; text-shadow: 1px 1px 4px rgba(0,0,0,0.4); }
+
+    /* Typewriter Effect */
+    .typewriter { display: inline-block; overflow: hidden; border-right: .15em solid var(--accent); white-space: nowrap; letter-spacing: .1em; animation: typing 2s steps(14, end), blink-caret .75s step-end infinite; }
+    @keyframes typing { from { width: 0 } to { width: 100% } }
+    @keyframes blink-caret { from, to { border-color: transparent } 50% { border-color: var(--accent); } }
     body.hero-image-active header:not(.scrolled) .typewriter { border-right-color: white; }
     body.hero-image-active.dark-mode header:not(.scrolled) .typewriter { border-right-color: var(--accent); }
-    nav { justify-self: center; }
-    nav ul {display: flex;list-style: none;gap: 2.5rem;}
-    #theme-toggle {justify-self: end; background: none;border: none;color: var(--text);font-size: 1.25rem;cursor: pointer;transition: var(--transition);padding: 0.5rem;line-height: 1;}
-    #theme-toggle:hover {color: var(--accent);transform: scale(1.1) translateY(-2px);}
+    
+    /* Theme Toggle */
+    #theme-toggle { justify-self: end; background: none; border: none; color: var(--text); font-size: 1.25rem; cursor: pointer; transition: var(--transition); padding: 0.5rem; line-height: 1; }
+    #theme-toggle:hover { color: var(--accent); transform: scale(1.1) translateY(-2px); }
     #sun-icon { display: none; }
     body.dark-mode #sun-icon { display: block; }
     body.dark-mode #moon-icon { display: none; }
-    body.hero-image-active #theme-toggle {color: white;}
-    nav a {text-decoration: none;color: var(--text);font-weight: 500;font-size: 1rem;position: relative;padding: 0.25rem 0;}
-    nav a::after {content: '';position: absolute;bottom: -5px;left: 0;width: 0;height: 2px;background: var(--accent);transition: var(--transition);}
-    nav a:hover::after, nav a.active::after {width: 100%;}
-    nav a.active { font-weight: 700; color: var(--accent); }
-    body.hero-image-active header:not(.scrolled) .logo, body.hero-image-active header:not(.scrolled) nav a {color: white;text-shadow: 1px 1px 4px rgba(0,0,0,0.4);}
-    .hero {min-height: 100vh;display: flex;flex-direction: column;align-items: center;justify-content: center;text-align: center;padding: 4rem 2rem;color: white;background-image: linear-gradient(45deg, rgba(29, 21, 58, 0.7), rgba(87, 28, 97, 0.7)), url('hero-image.jpg');background-size: cover;background-position: center center;background-attachment: fixed;}
-    .hero-content {max-width: 800px;}
-    .hero h1 {font-size: clamp(2.5rem, 6vw, 4.5rem);margin-bottom: 1.5rem;font-weight: 700;letter-spacing: -1.5px;color: #fff;text-shadow: 2px 2px 8px rgba(0,0,0,0.5);}
-    .hero p {font-size: clamp(1.1rem, 2vw, 1.3rem);max-width: 600px;opacity: 0.9;color: #f0f0f0;font-weight: 400;text-shadow: 1px 1px 6px rgba(0,0,0,0.5);line-height: 1.7;}
-    .work {padding: 8rem 0;}
-    .section-header {text-align: center; margin-bottom: 4rem;}
-    .section-header h2 {font-size: 2.5rem;margin-bottom: 1rem;}
-    .projects-grid {display: grid;grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));gap: 2rem;}
-    .project-card {background: white;border-radius: 8px;overflow: hidden;box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);transition: var(--transition);display: flex;flex-direction: column;}
-    .project-card:hover {transform: translateY(-5px);box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);}
-    .project-img {height: 180px;display: flex;align-items: center;justify-content: center;color: var(--accent);font-size: 2.5rem;}
-    .project-gradient-1 {background-image: linear-gradient(45deg, #a5b4fc, #e0e7ff);}
-    .project-gradient-2 {background-image: linear-gradient(45deg, #93c5fd, #e0f2fe);}
-    .project-gradient-3 {background-image: linear-gradient(45deg, #a78bfa, #ede9fe);}
-    .project-gradient-4 {background-image: linear-gradient(45deg, #fca5a5, #fee2e2);}
-    .project-info {padding: 1.5rem;flex-grow: 1;}
-    .project-info h3 {margin-bottom: 0.75rem;}
-    .modal {display: none;position: fixed;z-index: 1000;left: 0;top: 0;width: 100%;height: 100%;overflow: auto;background-color: rgba(0,0,0,0.6);backdrop-filter: blur(5px);animation: fadeIn 0.3s ease-in-out;}
-    .modal-content {background-color: var(--background);color: var(--text);margin: 10% auto;padding: 2rem 2.5rem;border: 1px solid #888;border-radius: 8px;width: 80%;max-width: 600px;position: relative;animation: slideIn 0.4s ease-in-out;}
-    .close-button {color: #aaa;float: right;font-size: 28px;font-weight: bold;line-height: 1;transition: color 0.3s ease;}
-    .close-button:hover,.close-button:focus {color: var(--accent);text-decoration: none;cursor: pointer;}
-    #academic-card, #skills-card, #extracurricular-card {cursor: pointer;}
-    .modal-section {margin-bottom: 1.5rem;}
-    .modal-section:last-child {margin-bottom: 0;}
-    .modal-section h3 {margin-bottom: 1rem;color: var(--accent);}
-    .modal-section ul {list-style: none;padding-left: 0;}
-    .modal-section li {margin-bottom: 0.5rem;}
-    .proficiency-list li {display: flex;justify-content: space-between;align-items: center;padding: 0.25rem 0;}
-    .proficiency-list .circles {display: flex;gap: 5px;}
-    .proficiency-list .circle {width: 15px;height: 15px;border-radius: 50%;border: 2px solid var(--accent);}
-    .proficiency-list .circle.filled {background-color: var(--accent);}
-    @keyframes fadeIn {from {opacity: 0;}to {opacity: 1;}}
-    @keyframes slideIn {from {transform: translateY(-50px); opacity: 0;}to {transform: translateY(0); opacity: 1;}}
-    .contact {padding: 8rem 0;background: #f3f4f6;}
-    .contact-grid {display: grid;grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));gap: 4rem;}
-    .contact-info h2 {font-size: 2rem;margin-bottom: 1.5rem;}
-    .contact-methods {display: flex;flex-direction: column;gap: 1.5rem;}
-    .contact-item {display: flex;align-items: flex-start;gap: 1rem;}
-    .contact-icon {background: var(--accent);color: white;width: 40px;height: 40px;border-radius: 50%;display: flex;align-items: center;justify-content: center;flex-shrink: 0;}
-    .contact-form input,.contact-form textarea {width: 100%;padding: 1rem;margin-bottom: 1.5rem;border: 1px solid #e5e7eb;border-radius: 4px;font-family: inherit;font-size: 1rem;}
-    .contact-form textarea {min-height: 150px;resize: vertical;}
-    .btn {display: inline-block;background: var(--accent);color: white;padding: 1rem 2.5rem;border-radius: 4px;text-decoration: none;font-weight: 500;border: none;cursor: pointer;transition: var(--transition);}
-    .btn:hover {background: #1d4ed8;transform: translateY(-2px);}
-    footer {padding: 3rem 0;text-align: center;border-top: 1px solid #e5e7eb;}
-    .social-links {display: flex;justify-content: center;gap: 3rem;margin-bottom: 1.5rem;}
-    .social-links a {color: var(--text);font-size: 1.25rem;transition: var(--transition);}
-    .social-links a:hover {color: var(--accent);transform: translateY(-3px);}
-    @media (max-width: 1024px) {.projects-grid {grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));}}
-    @media (max-width: 768px) {
-        .header-content {grid-template-columns: 1fr auto;}
-        .logo{justify-self:start;}
-        nav{grid-column: 1 / 3;grid-row: 2 / 3;}
-        .hero {padding-top: 12rem;}
-        .work, .contact {padding: 5rem 0;}
-    }
+    body.hero-image-active #theme-toggle { color: white; }
+
+    /* Hero Section */
+    .hero { min-height: 100vh; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; padding: 4rem 2rem; color: white; background-image: linear-gradient(45deg, rgba(29, 21, 58, 0.7), rgba(87, 28, 97, 0.7)), url('hero-image.jpg'); background-size: cover; background-position: center center; background-attachment: fixed; }
+    .hero-content { max-width: 800px; }
+    .hero h1 { font-size: clamp(2.5rem, 6vw, 4.5rem); margin-bottom: 1.5rem; font-weight: 700; letter-spacing: -1.5px; color: #fff; text-shadow: 2px 2px 8px rgba(0,0,0,0.5); }
+    .hero p { font-size: clamp(1.1rem, 2vw, 1.3rem); max-width: 600px; opacity: 0.9; color: #f0f0f0; font-weight: 400; text-shadow: 1px 1px 6px rgba(0,0,0,0.5); line-height: 1.7; }
+    
+    /* Highlights Section */
+    .work { padding: 8rem 0; }
+    .section-header { text-align: center; margin-bottom: 4rem; }
+    .section-header h2 { font-size: 2.5rem; margin-bottom: 1rem; }
+    .projects-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem; }
+    .project-card { background: white; border-radius: 8px; overflow: hidden; box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05); transition: var(--transition); display: flex; flex-direction: column; }
+    .project-card:hover { transform: translateY(-5px); box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1); }
+    .project-img { height: 180px; display: flex; align-items: center; justify-content: center; color: var(--accent); font-size: 2.5rem; }
+    .project-gradient-1 { background-image: linear-gradient(45deg, #a5b4fc, #e0e7ff); }
+    .project-gradient-2 { background-image: linear-gradient(45deg, #93c5fd, #e0f2fe); }
+    .project-gradient-3 { background-image: linear-gradient(45deg, #a78bfa, #ede9fe); }
+    .project-gradient-4 { background-image: linear-gradient(45deg, #fca5a5, #fee2e2); }
+    .project-info { padding: 1.5rem; flex-grow: 1; }
+    .project-info h3 { margin-bottom: 0.75rem; }
+    
+    /* Modals */
+    .modal { display: none; position: fixed; z-index: 1000; left: 0; top: 0; width: 100%; height: 100%; overflow: auto; background-color: rgba(0,0,0,0.6); backdrop-filter: blur(5px); animation: fadeIn 0.3s ease-in-out; }
+    .modal-content { background-color: var(--background); color: var(--text); margin: 10% auto; padding: 2rem 2.5rem; border: 1px solid #888; border-radius: 8px; width: 80%; max-width: 600px; position: relative; animation: slideIn 0.4s ease-in-out; }
+    .close-button { color: #aaa; float: right; font-size: 28px; font-weight: bold; line-height: 1; transition: color 0.3s ease; }
+    .close-button:hover, .close-button:focus { color: var(--accent); text-decoration: none; cursor: pointer; }
+    #academic-card, #skills-card, #extracurricular-card { cursor: pointer; }
+    .modal-section { margin-bottom: 1.5rem; }
+    .modal-section:last-child { margin-bottom: 0; }
+    .modal-section h3 { margin-bottom: 1rem; color: var(--accent); }
+    .modal-section ul { list-style: none; padding-left: 0; }
+    .modal-section li { margin-bottom: 0.5rem; }
+    .proficiency-list li { display: flex; justify-content: space-between; align-items: center; padding: 0.25rem 0; }
+    .proficiency-list .circles { display: flex; gap: 5px; }
+    .proficiency-list .circle { width: 15px; height: 15px; border-radius: 50%; border: 2px solid var(--accent); }
+    .proficiency-list .circle.filled { background-color: var(--accent); }
+    @keyframes fadeIn { from { opacity: 0 } to { opacity: 1 } }
+    @keyframes slideIn { from { transform: translateY(-50px); opacity: 0 } to { transform: translateY(0); opacity: 1 } }
+    
+    /* Contact */
+    .contact { padding: 8rem 0; background: #f3f4f6; }
+    .contact-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 4rem; }
+    .contact-info h2 { font-size: 2rem; margin-bottom: 1.5rem; }
+    .contact-methods { display: flex; flex-direction: column; gap: 1.5rem; }
+    .contact-item { display: flex; align-items: flex-start; gap: 1rem; }
+    .contact-icon { background: var(--accent); color: white; width: 40px; height: 40px; border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+    .contact-form input, .contact-form textarea { width: 100%; padding: 1rem; margin-bottom: 1.5rem; border: 1px solid #e5e7eb; border-radius: 4px; font-family: inherit; font-size: 1rem; }
+    .contact-form textarea { min-height: 150px; resize: vertical; }
+    .btn { display: inline-block; background: var(--accent); color: white; padding: 1rem 2.5rem; border-radius: 4px; text-decoration: none; font-weight: 500; border: none; cursor: pointer; transition: var(--transition); }
+    .btn:hover { background: #1d4ed8; transform: translateY(-2px); }
+
+    /* Footer */
+    footer { padding: 3rem 0; text-align: center; border-top: 1px solid #e5e7eb; }
+    .social-links { display: flex; justify-content: center; gap: 3rem; margin-bottom: 1.5rem; }
+    .social-links a { color: var(--text); font-size: 1.25rem; transition: var(--transition); }
+    .social-links a:hover { color: var(--accent); transform: translateY(-3px); }
+
+    /* Responsive */
+    @media (max-width: 1024px) { .projects-grid { grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); } }
+    @media (max-width: 768px) { .header-content { grid-template-columns: 1fr auto; } .logo { justify-self: start; } nav { grid-column: 1 / 3; grid-row: 2 / 3; } .hero { padding-top: 12rem; } .work, .contact { padding: 5rem 0; } }
   </style>
 </head>
+
 <body class="hero-image-active">
+
+  <!-- Header -->
   <header>
     <div class="container header-content">
-      <a href="index.html" class="logo"><span class="typewriter">Avinash Sastry</span></a>
+      <a href="index.html" class="logo">
+        <span class="typewriter">Avinash Sastry</span>
+      </a>
       <nav>
         <ul>
           <li><a href="index.html" class="active">Home</a></li>
@@ -112,41 +144,206 @@
           <li><a href="index.html#contact">Contact</a></li>
         </ul>
       </nav>
-      <button id="theme-toggle" title="Toggle theme"><i id="moon-icon" class="fas fa-moon"></i><i id="sun-icon" class="fas fa-sun"></i></button>
+      <button id="theme-toggle" title="Toggle theme">
+        <i id="moon-icon" class="fas fa-moon"></i>
+        <i id="sun-icon" class="fas fa-sun"></i>
+      </button>
     </div>
   </header>
-  <section class="hero"><div class="container hero-content"><h1>About Me</h1><p>Greetings! I'm Avinash Sastry, an enthusiastic and dedicated ECE student with a passion for VLSI design. My academic journey has equipped me with a solid foundation in Chemistry and Physics, and I am eager to leverage my skills and knowledge to contribute meaningfully to the field of Electronics and Communication.</p></div></section>
-  <section id="work" class="work"><div class="container"><div class="section-header" data-aos="fade-up"><h2>Highlights</h2><p>A snapshot of my skills and experiences</p></div><div class="projects-grid"><div class="project-card" data-aos="fade-up" id="academic-card"><div class="project-img project-gradient-1"><i class="fas fa-graduation-cap"></i></div><div class="project-info"><h3>Academic Journey</h3><p>My B.Tech in ECE at SRMIST, consistently achieving high grades and building a strong academic foundation.</p></div></div><div class="project-card" data-aos="fade-up" data-aos-delay="100" id="skills-card"><div class="project-img project-gradient-2"><i class="fas fa-cogs"></i></div><div class="project-info"><h3>Skills & Proficiencies</h3><p>A blend of technical programming knowledge and strong multilingual communication capabilities.</p></div></div><div class="project-card" data-aos="fade-up" data-aos-delay="200" id="extracurricular-card"><div class="project-img project-gradient-3"><i class="fas fa-trophy"></i></div><div class="project-info"><h3>Extracurriculars</h3><p>Well-rounded experience including NCC, competitive school sports, and participation in theatre.</p></div></div><div class="project-card" data-aos="fade-up" data-aos-delay="300"><div class="project-img project-gradient-4"><i class="fas fa-sitemap"></i></div><div class="project-info"><h3>Professional Memberships</h3><p>An active member of the Institute of Electrical and Electronics Engineers (IEEE), engaging with the professional community.</p></div></div></div></div></section>
-  <section id="contact" class="contact"><div class="container"><div class="contact-grid"><div class="contact-info" data-aos="fade-right"><h2>Get in Touch</h2><div class="contact-methods"><div class="contact-item"><div class="contact-icon"><i class="fas fa-envelope"></i></div><div><h3>Email</h3><p>aa0207@srmist.edu.in</p></div></div><div class="contact-item"><div class="contact-icon"><i class="fas fa-phone"></i></div><div><h3>Phone</h3><p>+91-9390846114</p></div></div><div class="contact-item"><div class="contact-icon"><i class="fas fa-map-marker-alt"></i></div><div><h3>Location</h3><p>Kattankalathur, India</p></div></div></div></div><div class="contact-form" data-aos="fade-left"><form name="contact" method="POST" data-netlify="true"><input type="hidden" name="form-name" value="contact" /><input type="text" name="name" placeholder="Your Name" required><input type="email" name="email" placeholder="Your Email" required><textarea name="message" placeholder="Your Message" required></textarea><button type="submit" class="btn">Send Message</button></form></div></div></div></section>
-  <div id="academic-modal" class="modal"><div class="modal-content"><span class="close-button">×</span><h2>Academic Journey</h2><div class="modal-section"><h3>B.Tech (Electronics and Communication)</h3><ul><li><strong>Institution:</strong> SRM Institute of Sciences and Technology</li><li><strong>Years:</strong> 2023 - 2027 (Currently in 5th Semester)</li><li><strong>1st Sem GPA:</strong> 9.22</li><li><strong>2nd Sem GPA:</strong> 9.48</li><li><strong>3rd Sem GPA:</strong> 9.14</ul></div><div class="modal-section"><h3>Class XII</h3><ul><li><strong>Board:</strong> Board of Intermediate Education Andhra Pradesh</li><li><strong>Years:</strong> 2021 - 2023</li><li><strong>Percentage:</strong> 86.2%</li></ul></div><div class="modal-section"><h3>Class X</h3><ul><li><strong>Board:</strong> Central Board of Secondary Education</li><li><strong>Year:</strong> 2021</li><li><strong>Percentage:</strong> 90.6%</li></ul></div></div></div>
-  <div id="skills-modal" class="modal"><div class="modal-content"><span class="close-button">×</span><h2>Skills & Proficiencies</h2><div class="modal-section"><h3>Technical Skills</h3><ul class="proficiency-list"><li><span>HTML</span> <div class="circles"><div class="circle filled"></div><div class="circle filled"></div><div class="circle filled"></div><div class="circle"></div><div class="circle"></div></div></li><li><span>CSS</span> <div class="circles"><div class="circle filled"></div><div class="circle filled"></div><div class="circle filled"></div><div class="circle"></div><div class="circle"></div></div></li><li><span>JavaScript</span> <div class="circles"><div class="circle filled"></div><div class="circle filled"></div><div class="circle"></div><div class="circle"></div><div class="circle"></div></div></li><li><span>C Programming</span> <div class="circles"><div class="circle filled"></div><div class="circle filled"></div><div class="circle filled"></div><div class="circle"></div><div class="circle"></div></div></li><li><span>Python</span> <div class="circles"><div class="circle filled"></div><div class="circle filled"></div><div class="circle"></div><div class="circle"></div><div class="circle"></div></div></li><li><span>Java</span> <div class="circles"><div class="circle filled"></div><div class="circle filled"></div><div class="circle"></div><div class="circle"></div><div class="circle"></div></div></li></ul></div><div class="modal-section"><h3>Languages</h3><ul class="proficiency-list"><li><span>English</span> <div class="circles"><div class="circle filled"></div><div class="circle filled"></div><div class="circle filled"></div><div class="circle filled"></div><div class="circle filled"></div></div></li><li><span>Telugu</span> <div class="circles"><div class="circle filled"></div><div class="circle filled"></div><div class="circle filled"></div><div class="circle filled"></div><div class="circle filled"></div></div></li><li><span>Hindi</span> <div class="circles"><div class="circle filled"></div><div class="circle filled"></div><div class="circle filled"></div><div class="circle filled"></div><div class="circle"></div></div></li><li><span>Japanese</span> <div class="circles"><div class="circle filled"></div><div class="circle"></div><div class="circle"></div><div class="circle"></div><div class="circle"></div></div></li></ul></div></div></div>
-  <div id="extracurricular-modal" class="modal"><div class="modal-content"><span class="close-button">×</span><h2>Extracurriculars</h2><div class="modal-section"><h3>NCC</h3><ul><li><strong>Rank:</strong> Cadet</li><li><strong>Certificate:</strong> 'A'</li><li><strong>Unit:</strong> 6(A) AIR SQN(FLG) NCC, VSP</li><li><strong>Directorate:</strong> Andhra Pradesh and Telangana</li></ul></div><div class="modal-section"><h3>Kho-Kho</h3><ul><li>Played at the school level, finishing as runner-up in the annual school sports fest.</li></ul></div><div class="modal-section"><h3>Theatre</h3><ul><li>Participated in various theatre productions during my school years.</li></ul></div></div></div>
-  <footer><div class="container"><div class="social-links"><a href="https://github.com/Avinash-sastry" target="_blank" title="GitHub"><i class="fab fa-github"></i></a><a href="https://www.linkedin.com/in/avinash-sastry-b784342a8/" target="_blank" title="LinkedIn"><i class="fab fa-linkedin-in"></i></a></div><p>© 2024 Avinash Sastry. All rights reserved.</p></div></footer>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="container hero-content">
+      <h1>About Me</h1>
+      <p>Greetings! I'm Avinash Sastry, an enthusiastic and dedicated ECE student with a passion for VLSI design. My academic journey has equipped me with a solid foundation in Chemistry and Physics, and I am eager to leverage my skills and knowledge to contribute meaningfully to the field of Electronics and Communication.</p>
+    </div>
+  </section>
+
+  <!-- Highlights Section -->
+  <section id="work" class="work">
+    <div class="container">
+      <div class="section-header" data-aos="fade-up">
+        <h2>Highlights</h2>
+        <p>A snapshot of my skills and experiences</p>
+      </div>
+      <div class="projects-grid">
+        <div class="project-card" data-aos="fade-up" id="academic-card">
+          <div class="project-img project-gradient-1"><i class="fas fa-graduation-cap"></i></div>
+          <div class="project-info"><h3>Academic Journey</h3><p>My B.Tech in ECE at SRMIST, consistently achieving high grades and building a strong academic foundation.</p></div>
+        </div>
+        <div class="project-card" data-aos="fade-up" data-aos-delay="100" id="skills-card">
+          <div class="project-img project-gradient-2"><i class="fas fa-cogs"></i></div>
+          <div class="project-info"><h3>Skills & Proficiencies</h3><p>A blend of technical programming knowledge and strong multilingual communication capabilities.</p></div>
+        </div>
+        <div class="project-card" data-aos="fade-up" data-aos-delay="200" id="extracurricular-card">
+          <div class="project-img project-gradient-3"><i class="fas fa-trophy"></i></div>
+          <div class="project-info"><h3>Extracurriculars</h3><p>Well-rounded experience including NCC, competitive school sports, and participation in theatre.</p></div>
+        </div>
+        <div class="project-card" data-aos="fade-up" data-aos-delay="300">
+          <div class="project-img project-gradient-4"><i class="fas fa-sitemap"></i></div>
+          <div class="project-info"><h3>Professional Memberships</h3><p>An active member of the Institute of Electrical and Electronics Engineers (IEEE), engaging with the professional community.</p></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section id="contact" class="contact">
+    <div class="container">
+      <div class="contact-grid">
+        <div class="contact-info" data-aos="fade-right">
+          <h2>Get in Touch</h2>
+          <div class="contact-methods">
+            <div class="contact-item">
+              <div class="contact-icon"><i class="fas fa-envelope"></i></div>
+              <div><h3>Email</h3><p>aa0207@srmist.edu.in</p></div>
+            </div>
+            <div class="contact-item">
+              <div class="contact-icon"><i class="fas fa-phone"></i></div>
+              <div><h3>Phone</h3><p>+91-9390846114</p></div>
+            </div>
+            <div class="contact-item">
+              <div class="contact-icon"><i class="fas fa-map-marker-alt"></i></div>
+              <div><h3>Location</h3><p>Kattankalathur, India</p></div>
+            </div>
+          </div>
+        </div>
+        <div class="contact-form" data-aos="fade-left">
+          <form name="contact" method="POST" data-netlify="true">
+            <input type="hidden" name="form-name" value="contact" />
+            <input type="text" name="name" placeholder="Your Name" required>
+            <input type="email" name="email" placeholder="Your Email" required>
+            <textarea name="message" placeholder="Your Message" required></textarea>
+            <button type="submit" class="btn">Send Message</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Modals -->
+  <div id="academic-modal" class="modal">
+    <div class="modal-content">
+      <span class="close-button">×</span>
+      <h2>Academic Journey</h2>
+      <div class="modal-section">
+        <h3>B.Tech (Electronics and Communication)</h3>
+        <ul>
+          <li><strong>Institution:</strong> SRM Institute of Sciences and Technology</li>
+          <li><strong>Years:</strong> 2023 - 2027 (Currently in 5th Semester)</li>
+          <li><strong>1st Sem GPA:</strong> 9.22</li>
+          <li><strong>2nd Sem GPA:</strong> 9.48</li>
+          <li><strong>3rd Sem GPA:</strong> 9.14</li>
+        </ul>
+      </div>
+      <div class="modal-section">
+        <h3>Class XII</h3>
+        <ul>
+          <li><strong>Board:</strong> Board of Intermediate Education Andhra Pradesh</li>
+          <li><strong>Years:</strong> 2021 - 2023</li>
+          <li><strong>Percentage:</strong> 86.2%</li>
+        </ul>
+      </div>
+      <div class="modal-section">
+        <h3>Class X</h3>
+        <ul>
+          <li><strong>Board:</strong> Central Board of Secondary Education</li>
+          <li><strong>Year:</strong> 2021</li>
+          <li><strong>Percentage:</strong> 90.6%</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div id="skills-modal" class="modal">
+    <div class="modal-content">
+      <span class="close-button">×</span>
+      <h2>Skills & Proficiencies</h2>
+      <div class="modal-section">
+        <h3>Technical Skills</h3>
+        <ul class="proficiency-list">
+          <li><span>HTML</span> <div class="circles"><div class="circle filled"></div><div class="circle filled"></div><div class="circle filled"></div><div class="circle"></div><div class="circle"></div></div></li>
+          <li><span>CSS</span> <div class="circles"><div class="circle filled"></div><div class="circle filled"></div><div class="circle filled"></div><div class="circle"></div><div class="circle"></div></div></li>
+          <li><span>JavaScript</span> <div class="circles"><div class="circle filled"></div><div class="circle filled"></div><div class="circle"></div><div class="circle"></div><div class="circle"></div></div></li>
+          <li><span>C Programming</span> <div class="circles"><div class="circle filled"></div><div class="circle filled"></div><div class="circle filled"></div><div class="circle"></div><div class="circle"></div></div></li>
+          <li><span>Python</span> <div class="circles"><div class="circle filled"></div><div class="circle filled"></div><div class="circle"></div><div class="circle"></div><div class="circle"></div></div></li>
+          <li><span>Java</span> <div class="circles"><div class="circle filled"></div><div class="circle filled"></div><div class="circle"></div><div class="circle"></div><div class="circle"></div></div></li>
+        </ul>
+      </div>
+      <div class="modal-section">
+        <h3>Languages</h3>
+        <ul class="proficiency-list">
+          <li><span>English</span> <div class="circles"><div class="circle filled"></div><div class="circle filled"></div><div class="circle filled"></div><div class="circle filled"></div><div class="circle filled"></div></div></li>
+          <li><span>Telugu</span> <div class="circles"><div class="circle filled"></div><div class="circle filled"></div><div class="circle filled"></div><div class="circle filled"></div><div class="circle filled"></div></div></li>
+          <li><span>Hindi</span> <div class="circles"><div class="circle filled"></div><div class="circle filled"></div><div class="circle filled"></div><div class="circle filled"></div><div class="circle"></div></div></li>
+          <li><span>Japanese</span> <div class="circles"><div class="circle filled"></div><div class="circle"></div><div class="circle"></div><div class="circle"></div><div class="circle"></div></div></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div id="extracurricular-modal" class="modal">
+    <div class="modal-content">
+      <span class="close-button">×</span>
+      <h2>Extracurriculars</h2>
+      <div class="modal-section"><h3>NCC</h3><ul><li><strong>Rank:</strong> Cadet</li><li><strong>Certificate:</strong> 'A'</li><li><strong>Unit:</strong> 6(A) AIR SQN(FLG) NCC, VSP</li><li><strong>Directorate:</strong> Andhra Pradesh and Telangana</li></ul></div>
+      <div class="modal-section"><h3>Kho-Kho</h3><ul><li>Played at the school level, finishing as runner-up in the annual school sports fest.</li></ul></div>
+      <div class="modal-section"><h3>Theatre</h3><ul><li>Participated in various theatre productions during my school years.</li></ul></div>
+    </div>
+  </div>
+  
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <div class="social-links">
+        <a href="https://github.com/Avinash-sastry" target="_blank" title="GitHub"><i class="fab fa-github"></i></a>
+        <a href="https://www.linkedin.com/in/avinash-sastry-b784342a8/" target="_blank" title="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+      </div>
+      <p>© 2024 Avinash Sastry. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
   <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
-  <script>
-    AOS.init({once: true,duration: 600,easing: 'ease-in-out'});
-    const themeToggle = document.getElementById('theme-toggle');const body = document.body;const header = document.querySelector('header');
-    window.addEventListener('scroll', () => {if (window.scrollY > 50) {header.classList.add('scrolled');} else {header.classList.remove('scrolled');}});
-    const savedTheme = localStorage.getItem('theme');if (savedTheme === 'dark') {body.classList.add('dark-mode');}
-    themeToggle.addEventListener('click', () => {body.classList.toggle('dark-mode');if (body.classList.contains('dark-mode')) {localStorage.setItem('theme', 'dark');} else {localStorage.setItem('theme', 'light');}});
-    function setupModal(cardId, modalId) {const card = document.getElementById(cardId);const modal = document.getElementById(modalId);if (!card || !modal) return;const closeButton = modal.querySelector('.close-button');card.onclick = () => { modal.style.display = 'block'; }; closeButton.onclick = () => { modal.style.display = 'none'; };}
-    setupModal('academic-card', 'academic-modal');setupModal('skills-card', 'skills-modal');setupModal('extracurricular-card', 'extracurricular-modal');
-    window.onclick = (event) => {if (event.target.classList.contains('modal')) {event.target.style.display = 'none';}}
-  </script>
   <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>
   <script>
+    // Initialize AOS
+    AOS.init({ once: true, duration: 600, easing: 'ease-in-out' });
+
+    // Theme Toggle and Header Scroll
+    const themeToggle = document.getElementById('theme-toggle');
+    const body = document.body;
+    const header = document.querySelector('header');
+    window.addEventListener('scroll', () => { if (window.scrollY > 50) { header.classList.add('scrolled'); } else { header.classList.remove('scrolled'); } });
+    const savedTheme = localStorage.getItem('theme');
+    if (savedTheme === 'dark') { body.classList.add('dark-mode'); }
+    themeToggle.addEventListener('click', () => { body.classList.toggle('dark-mode'); if (body.classList.contains('dark-mode')) { localStorage.setItem('theme', 'dark'); } else { localStorage.setItem('theme', 'light'); } });
+
+    // Modal Logic
+    function setupModal(cardId, modalId) {
+      const card = document.getElementById(cardId);
+      const modal = document.getElementById(modalId);
+      if (!card || !modal) return;
+      const closeButton = modal.querySelector('.close-button');
+      card.onclick = () => { modal.style.display = 'block'; };
+      closeButton.onclick = () => { modal.style.display = 'none'; };
+    }
+    setupModal('academic-card', 'academic-modal');
+    setupModal('skills-card', 'skills-modal');
+    setupModal('extracurricular-card', 'extracurricular-modal');
+    window.onclick = (event) => { if (event.target.classList.contains('modal')) { event.target.style.display = 'none'; } };
+
+    // Konami Code Easter Egg
     const konamiCode = ['ArrowUp', 'ArrowUp', 'ArrowDown', 'ArrowDown', 'ArrowLeft', 'ArrowRight', 'ArrowLeft', 'ArrowRight', 'b', 'a'];
     let konamiIndex = 0;
     document.addEventListener('keydown', (e) => {
-        if (e.key === konamiCode[konamiIndex]) {
-            konamiIndex++;
-            if (konamiIndex === konamiCode.length) {
-                confetti({ particleCount: 150, spread: 90, origin: { y: 0.6 } });
-                konamiIndex = 0;
-            }
-        } else {
-            konamiIndex = 0;
+      if (e.key === konamiCode[konamiIndex]) {
+        konamiIndex++;
+        if (konamiIndex === konamiCode.length) {
+          confetti({ particleCount: 150, spread: 90, origin: { y: 0.6 } });
+          konamiIndex = 0;
         }
+      } else {
+        konamiIndex = 0;
+      }
     });
   </script>
 </body>
