@@ -8,7 +8,7 @@ html {
         This makes it feel like you are "pointing" with the input of the gate.
       - auto: Fallback cursor.
     */
-    cursor: url('not-gate-cursor.svg') 0 16, auto;
+    cursor: url('logic-gate-cursor.svg') 0 16, auto;
 }
 
 /* Inherit the custom cursor for all interactive elements */
