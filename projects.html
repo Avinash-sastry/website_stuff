@@ -1,69 +1,165 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Projects | Avinash Sastry</title>
-  <!-- External Stylesheets -->
-  <link rel="stylesheet" href="style.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-  <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projects | Avinash Sastry</title>
+
+    <!-- External Stylesheets -->
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
 </head>
 <body>
 
-  <header>
-    <div class="container header-content">
-      <a href="index.html" class="logo"><span class="typewriter">Avinash Sastry</span></a>
-      <nav>
-        <ul>
-          <li><a href="index.html">Home</a></li>
-          <li><a href="projects.html" class="active">Projects</a></li>
-          <li><a href="certifications.html">Certifications</a></li>
-          <li><a href="index.html#contact">Contact</a></li>
-        </ul>
-      </nav>
-      <button id="theme-toggle" title="Toggle theme"><i id="moon-icon" class="fas fa-moon"></i><i id="sun-icon" class="fas fa-sun"></i></button>
-    </div>
-  </header>
-
-  <main>
-    <section id="projects" class="work">
-      <div class="container">
-        <div class="section-header" data-aos="fade-up"><h2>Course Projects</h2><p>Key academic and personal project reports.</p></div>
-        
-        <div class="section-header" data-aos="fade-up"><h3 style="color: var(--accent);">Python Programming</h3></div>
-        <div class="projects-grid">
-          <div class="project-card" data-aos="fade-up"><div class="project-info"><h3>International Cuisine Ordering System</h3><div class="description"><p>This Python Tkinter application provides a simple GUI for users to browse and order food from various international cuisines, calculating the total with tax and confirming the order.</p></div><div class="links"><a href="reports/cuisine-system-report.pdf" target="_blank" class="btn-view-report"><i class="fas fa-file-pdf"></i> View Report</a></div></div></div>
+    <!-- =================================================================== -->
+    <!-- HEADER                                                              -->
+    <!-- =================================================================== -->
+    <header>
+        <div class="container header-content">
+            <a href="index.html" class="logo"><span class="typewriter">Avinash Sastry</span></a>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="projects.html" class="active">Projects</a></li>
+                    <li><a href="certifications.html">Certifications</a></li>
+                    <li><a href="index.html#contact">Contact</a></li>
+                </ul>
+            </nav>
+            <button id="theme-toggle" title="Toggle theme"><i id="moon-icon" class="fas fa-moon"></i><i id="sun-icon" class="fas fa-sun"></i></button>
         </div>
-        
-        <div class="section-header" data-aos="fade-up" style="margin-top: 4rem;"><h3 style="color: var(--accent);">Computer Organization and Architecture</h3></div>
-        <div class="projects-grid">
-          <div class="project-card" data-aos="fade-up"><div class="project-info"><h3>Comparative Performance Analysis of Digital Multipliers</h3><div class="description"><p>This project explores the efficiency of four digital multiplication algorithms for 8-bit inputs. The Shift-Add multiplier emerged as fastest, while Booth multipliers excelled with signed numbers.</p></div><div class="links"><a href="reports/digital-multipliers-report.pdf" target="_blank" class="btn-view-report"><i class="fas fa-file-pdf"></i> View Report</a></div></div></div>
-        </div>
-        
-        <div class="section-header" data-aos="fade-up" style="margin-top: 4rem;"><h3 style="color: var(--accent);">Electromagnetic Theory and Interference</h3></div>
-        <div class="projects-grid">
-          <div class="project-card" data-aos="fade-up"><div class="project-info"><h3>Strategies for Reducing EMI in Modern Technology</h3><div class="description"><p>A case study on mitigating EMI in smartphones, electric vehicles, and satellites, covering shielding, grounding, and filtering techniques to ensure resilience and performance.</p></div><div class="links"><a href="reports/emi-reduction-report.pdf" target="_blank" class="btn-view-report"><i class="fas fa-file-pdf"></i> View Report</a></div></div></div>
-          <div class="project-card" data-aos="fade-up" data-aos-delay="100"><div class="project-info"><h3>Simulation Study on EMI in Waveguides</h3><div class="description"><p>This MATLAB study analyzes EMI in waveguides and transmission lines, exploring how physical parameters affect wave behavior and the conditions for optimal efficiency.</p></div><div class="links"><a href="reports/waveguides-simulation-report.pdf" target="_blank" class="btn-view-report"><i class="fas fa-file-pdf"></i> View Report</a></div></div></div>
-        </div>
-      </div>
-    </section>
-  </main>
+    </header>
 
-  <footer>
-    <div class="container">
-      <div class="social-links">
-        <a href="https://github.com/Avinash-sastry" target="_blank" title="GitHub"><i class="fab fa-github"></i></a>
-        <a href="https://www.linkedin.com/in/avinash-sastry-b784342a8/" target="_blank" title="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
-      </div>
-      <p>© 2024 Avinash Sastry. All rights reserved.</p>
-    </div>
-  </footer>
 
-  <!-- External Scripts -->
-  <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>
-  <script src="main.js"></script>
+    <!-- =================================================================== -->
+    <!-- MAIN CONTENT                                                        -->
+    <!-- =================================================================== -->
+    <main>
+        <section id="projects" class="work">
+            <div class="container">
+
+                <div class="section-header" data-aos="fade-up">
+                    <h2>Course Projects</h2>
+                    <p>Key academic and personal project reports.</p>
+                </div>
+
+                <!-- ======================================================= -->
+                <!-- Artificial Intelligence Section                       -->
+                <!-- ======================================================= -->
+                <div class="section-header" data-aos="fade-up">
+                    <h3 style="color: var(--accent);">Artificial Intelligence</h3>
+                </div>
+                <div class="projects-grid">
+                    <div class="project-card" data-aos="fade-up">
+                        <div class="project-info">
+                            <h3>DrugCheck: Medication Interaction Analyzer</h3>
+                            <div class="description">
+                                <p>An AI-powered web application designed to prevent harmful drug-drug interactions. Leveraging the Mistral AI language model, DrugCheck provides users with instant, easy-to-understand analysis of medication combinations, including severity levels and safety recommendations. The application was developed using React.js to offer a seamless and responsive user experience.</p>
+                            </div>
+                            <div class="links">
+                                <a href="reports/drugcheck-analyzer-report.pdf" target="_blank" class="btn-view-report"><i class="fas fa-file-pdf"></i> View Report</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ======================================================= -->
+                <!-- Python Programming Section                            -->
+                <!-- ======================================================= -->
+                <div class="section-header" data-aos="fade-up" style="margin-top: 4rem;">
+                    <h3 style="color: var(--accent);">Python Programming</h3>
+                </div>
+                <div class="projects-grid">
+                    <div class="project-card" data-aos="fade-up">
+                        <div class="project-info">
+                            <h3>International Cuisine Ordering System</h3>
+                            <div class="description">
+                                <p>This Python Tkinter application provides a simple GUI for users to browse and order food from various international cuisines, calculating the total with tax and confirming the order.</p>
+                            </div>
+                            <div class="links">
+                                <a href="reports/cuisine-system-report.pdf" target="_blank" class="btn-view-report"><i class="fas fa-file-pdf"></i> View Report</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ======================================================= -->
+                <!-- Computer Organization and Architecture Section          -->
+                <!-- ======================================================= -->
+                <div class="section-header" data-aos="fade-up" style="margin-top: 4rem;">
+                    <h3 style="color: var(--accent);">Computer Organization and Architecture</h3>
+                </div>
+                <div class="projects-grid">
+                    <div class="project-card" data-aos="fade-up">
+                        <div class="project-info">
+                            <h3>Comparative Performance Analysis of Digital Multipliers</h3>
+                            <div class="description">
+                                <p>This project explores the efficiency of four digital multiplication algorithms for 8-bit inputs. The Shift-Add multiplier emerged as fastest, while Booth multipliers excelled with signed numbers.</p>
+                            </div>
+                            <div class="links">
+                                <a href="reports/digital-multipliers-report.pdf" target="_blank" class="btn-view-report"><i class="fas fa-file-pdf"></i> View Report</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ======================================================= -->
+                <!-- Electromagnetic Theory and Interference Section       -->
+                <!-- ======================================================= -->
+                <div class="section-header" data-aos="fade-up" style="margin-top: 4rem;">
+                    <h3 style="color: var(--accent);">Electromagnetic Theory and Interference</h3>
+                </div>
+                <div class="projects-grid">
+                    <div class="project-card" data-aos="fade-up">
+                        <div class="project-info">
+                            <h3>Strategies for Reducing EMI in Modern Technology</h3>
+                            <div class="description">
+                                <p>A case study on mitigating EMI in smartphones, electric vehicles, and satellites, covering shielding, grounding, and filtering techniques to ensure resilience and performance.</p>
+                            </div>
+                            <div class="links">
+                                <a href="reports/emi-reduction-report.pdf" target="_blank" class="btn-view-report"><i class="fas fa-file-pdf"></i> View Report</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="project-card" data-aos="fade-up" data-aos-delay="100">
+                        <div class="project-info">
+                            <h3>Simulation Study on EMI in Waveguides</h3>
+                            <div class="description">
+                                <p>This MATLAB study analyzes EMI in waveguides and transmission lines, exploring how physical parameters affect wave behavior and the conditions for optimal efficiency.</p>
+                            </div>
+                            <div class="links">
+                                <a href="reports/waveguides-simulation-report.pdf" target="_blank" class="btn-view-report"><i class="fas fa-file-pdf"></i> View Report</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+    </main>
+
+
+    <!-- =================================================================== -->
+    <!-- FOOTER                                                              -->
+    <!-- =================================================================== -->
+    <footer>
+        <div class="container">
+            <div class="social-links">
+                <a href="https://github.com/Avinash-sastry" target="_blank" title="GitHub"><i class="fab fa-github"></i></a>
+                <a href="https://www.linkedin.com/in/avinash-sastry-b784342a8/" target="_blank" title="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+            </div>
+            <p>© 2024 Avinash Sastry. All rights reserved.</p>
+        </div>
+    </footer>
+
+
+    <!-- =================================================================== -->
+    <!-- SCRIPTS                                                             -->
+    <!-- =================================================================== -->
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>
+    <script src="main.js"></script>
 
 </body>
 </html>
