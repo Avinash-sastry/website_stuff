@@ -640,6 +640,23 @@ footer {
     border: 0;
 }
 
+/* 
+  NEW RULE: This targets the wrapper for the last card on the home page.
+  We only apply this on screens wider than 900px, which is roughly where
+  the grid becomes 3 columns.
+*/
+@media (min-width: 900px) {
+    .professional-membership-wrapper {
+        /* Make the wrapper span all columns of the grid */
+        grid-column: 1 / -1;
+
+        /* Use flexbox to center the card inside the wrapper */
+        display: flex;
+        justify-content: center;
+    }
+}
+
+
 @media (max-width: 1024px) {
     /* Home page project grid on medium screens */
     .projects-grid {

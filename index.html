@@ -28,7 +28,6 @@
         </div>
     </header>
 
-    <!-- Main content is now wrapped in a <main> tag -->
     <main>
         <section class="hero">
             <div class="container hero-content">
@@ -71,14 +70,21 @@
                                 theatre.</p>
                         </div>
                     </div>
-                    <div class="project-card" data-aos="fade-up" data-aos-delay="300">
-                        <div class="project-img project-gradient-4"><i class="fas fa-sitemap"></i></div>
-                        <div class="project-info">
-                            <h3>Professional Memberships</h3>
-                            <p>An active member of the Institute of Electrical and Electronics Engineers (IEEE), engaging
-                                with the professional community.</p>
+                    
+                    <!-- START OF CHANGE -->
+                    <!-- The professional membership card is now wrapped in a div -->
+                    <div class="professional-membership-wrapper" data-aos="fade-up">
+                        <div class="project-card">
+                            <div class="project-img project-gradient-4"><i class="fas fa-sitemap"></i></div>
+                            <div class="project-info">
+                                <h3>Professional Memberships</h3>
+                                <p>An active member of the Institute of Electrical and Electronics Engineers (IEEE), engaging
+                                    with the professional community.</p>
+                            </div>
                         </div>
                     </div>
+                    <!-- END OF CHANGE -->
+
                 </div>
             </div>
         </section>
@@ -114,7 +120,6 @@
                     </div>
                     <div class="contact-form" data-aos="fade-left">
                         <form id="contact-form">
-                            <!-- Accessibility Improvement: Added labels -->
                             <label for="name" class="visually-hidden">Your Name</label>
                             <input type="text" id="name" name="name" placeholder="Your Name" required>
                             
@@ -132,7 +137,7 @@
         </section>
     </main>
 
-    <!-- Modals remain in HTML for content purposes -->
+    <!-- Modals -->
     <div id="academic-modal" class="modal">
         <div class="modal-content"><span class="close-button">×</span>
             <h2>Academic Journey</h2>
@@ -306,7 +311,6 @@
         </div>
     </footer>
     
-    <!-- External Scripts -->
     <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>
     <script src="main.js"></script>
