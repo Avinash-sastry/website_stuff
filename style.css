@@ -1,4 +1,43 @@
 /* ==========================================================================
+   CUSTOM CURSOR STYLES (NEW)
+   ========================================================================== */
+html {
+    /* 
+      - url('not-gate-cursor.svg'): Points to our new, clearer logic gate.
+      - 0 16: The hotspot is now the start of the input pin on the far left.
+        This makes it feel like you are "pointing" with the input of the gate.
+      - auto: Fallback cursor.
+    */
+    cursor: url('not-gate-cursor.svg') 0 16, auto;
+}
+
+/* Inherit the custom cursor for all interactive elements */
+a, button, .project-card, input[type="submit"] {
+    cursor: inherit;
+}
+
+/* ==========================================================================
+   PAGE TRANSITION STYLES (NEW)
+   ========================================================================== */
+.transition-screen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background-color: var(--background);
+    z-index: 9999;
+    opacity: 1;
+    pointer-events: none; /* Allows clicks to pass through */
+    transition: opacity 0.5s ease-in-out;
+}
+
+.transition-screen.is-active {
+    opacity: 0;
+}
+
+
+/* ==========================================================================
    Base & Variables
    ========================================================================== */
 
@@ -61,19 +100,11 @@ body.dark-mode .contact {
     background: #1f2937;
 }
 
-
-/* 
-  FIX: This is the new, more specific rule that solves the header problem.
-  It correctly targets the header in dark mode when it's scrolled (on any page)
-  OR when it's on a sub-page (that doesn't have a hero image). This rule is
-  stronger than the default light-background rule and will now apply correctly.
-*/
 body.dark-mode header.scrolled,
 body.dark-mode:not(.hero-image-active) header {
     background: rgba(17, 24, 39, 0.9);
     border-bottom-color: #374151;
 }
-
 
 body.dark-mode input,
 body.dark-mode textarea {
@@ -110,13 +141,11 @@ header {
     background: transparent;
 }
 
-/* Scrolled state for header (applies light background by default) */
 header.scrolled {
     background: rgba(250, 250, 250, 0.95);
     backdrop-filter: blur(10px);
 }
 
-/* Specific header styling for non-hero pages (applies light background by default) */
 body:not(.hero-image-active) header {
     background: rgba(250, 250, 250, 0.95);
     backdrop-filter: blur(10px);
@@ -139,7 +168,6 @@ body:not(.hero-image-active) header {
     color: var(--text);
 }
 
-/* Typewriter Effect */
 .typewriter {
     display: inline-block;
     overflow: hidden;
@@ -207,14 +235,12 @@ nav a.active {
     color: var(--accent);
 }
 
-/* Nav text color on hero banner */
 body.hero-image-active header:not(.scrolled) .logo,
 body.hero-image-active header:not(.scrolled) nav a {
     color: white;
     text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.4);
 }
 
-/* Theme Toggle Button */
 #theme-toggle {
     justify-self: end;
     background: none;
@@ -276,7 +302,7 @@ body.hero-image-active header:not(.scrolled) #theme-toggle { color: white; }
     opacity: 0.9;
     color: #f0f0f0;
     font-weight: 400;
-    text--shadow: 1px 1px 6px rgba(0, 0, 0, 0.5);
+    text-shadow: 1px 1px 6px rgba(0, 0, 0, 0.5);
     line-height: 1.7;
 }
 
@@ -285,7 +311,6 @@ body.hero-image-active header:not(.scrolled) #theme-toggle { color: white; }
     padding: 8rem 0;
 }
 
-/* Top padding for pages with fixed header */
 body:not(.hero-image-active) .work {
     padding-top: 10rem;
 }
@@ -304,11 +329,9 @@ body:not(.hero-image-active) .work {
 .projects-grid {
     display: grid;
     gap: 2rem;
-    /* Grid columns for home page */
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
 }
 
-/* Overriding grid columns for projects/certifications pages */
 body:not(.hero-image-active) .projects-grid {
     gap: 2.5rem;
     justify-content: center;
@@ -323,6 +346,7 @@ body:not(.hero-image-active) .projects-grid {
     transition: var(--transition);
     display: flex;
     flex-direction: column;
+    transform-style: preserve-3d;
 }
 
 .project-card:hover {
@@ -330,7 +354,6 @@ body:not(.hero-image-active) .projects-grid {
     box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
 }
 
-/* Home Page Specific Card Styles */
 .project-img {
     height: 180px;
     display: flex;
@@ -345,7 +368,6 @@ body:not(.hero-image-active) .projects-grid {
 .project-gradient-3 { background-image: linear-gradient(45deg, #a78bfa, #ede9fe); }
 .project-gradient-4 { background-image: linear-gradient(45deg, #fca5a5, #fee2e2); }
 
-/* Card Info (Used on all pages) */
 .project-info {
     padding: 1.5rem;
     flex-grow: 1;
@@ -353,7 +375,6 @@ body:not(.hero-image-active) .projects-grid {
     flex-direction: column;
 }
 
-/* Padding override for project/cert pages */
 body:not(.hero-image-active) .project-info {
     padding: 2rem;
 }
@@ -382,7 +403,6 @@ body:not(.hero-image-active) .project-info h3 {
     padding-top: 1rem;
 }
 
-/* Button for Project/Cert pages */
 .btn-view-report {
     display: inline-block;
     background: var(--accent);
@@ -624,10 +644,43 @@ footer {
 }
 
 /* ==========================================================================
+   Enhanced Animation Styles
+   ========================================================================== */
+
+/* Make the contents of the card appear layered for the 3D effect */
+.project-card .project-img,
+.project-card .project-info {
+    transform: translateZ(20px);
+}
+
+/* Animate the icons inside the highlight cards on the home page */
+.project-card .project-img i {
+    transition: transform 0.3s ease-out;
+}
+
+.project-card:hover .project-img i {
+    transform: scale(1.15) rotate(-5deg);
+}
+
+/* Hide the arrow on the contact button by default */
+.btn .btn-arrow {
+    display: inline-block;
+    opacity: 0;
+    transform: translateX(-10px);
+    transition: all 0.3s ease;
+}
+
+/* On button hover, make the arrow appear and slide in */
+.btn:hover .btn-arrow {
+    opacity: 1;
+    transform: translateX(5px);
+}
+
+
+/* ==========================================================================
    Utility & Media Queries
    ========================================================================== */
 
-/* Accessibility utility class to visually hide labels but keep them for screen readers */
 .visually-hidden {
     position: absolute;
     width: 1px;
@@ -640,25 +693,15 @@ footer {
     border: 0;
 }
 
-/* 
-  NEW RULE: This targets the wrapper for the last card on the home page.
-  We only apply this on screens wider than 900px, which is roughly where
-  the grid becomes 3 columns.
-*/
 @media (min-width: 900px) {
     .professional-membership-wrapper {
-        /* Make the wrapper span all columns of the grid */
         grid-column: 1 / -1;
-
-        /* Use flexbox to center the card inside the wrapper */
         display: flex;
         justify-content: center;
     }
 }
 
-
 @media (max-width: 1024px) {
-    /* Home page project grid on medium screens */
     .projects-grid {
         grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     }

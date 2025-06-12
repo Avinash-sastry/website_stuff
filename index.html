@@ -12,6 +12,8 @@
 </head>
 
 <body class="hero-image-active">
+    <!-- NEW: Page transition element -->
+    <div class="transition-screen"></div>
     <header>
         <div class="container header-content">
             <a href="index.html" class="logo"><span class="typewriter">Avinash Sastry</span></a>
@@ -32,8 +34,8 @@
         <section class="hero">
             <div class="container hero-content">
                 <h1>About Me</h1>
-                <p>Greetings! I'm Avinash Sastry, an enthusiastic and dedicated ECE student with a passion for Artificial Intelligence, UI/UX, Web and VLSI design.
-                    My academic journey has equipped me with a solid foundation in Chemistry Physics and Maths, and I am eager to
+                <p>Greetings! I'm Avinash Sastry, an enthusiastic and dedicated ECE student with a passion for VLSI design.
+                    My academic journey has equipped me with a solid foundation in Chemistry and Physics , and I am eager to
                     leverage my skills and knowledge to contribute meaningfully to the field of Electronics and
                     Communication.</p>
             </div>
@@ -46,7 +48,7 @@
                     <p>A snapshot of my skills and experiences</p>
                 </div>
                 <div class="projects-grid">
-                    <div class="project-card" data-aos="fade-up" id="academic-card">
+                    <div class="project-card" data-aos="fade-up" id="academic-card" data-tilt>
                         <div class="project-img project-gradient-1"><i class="fas fa-graduation-cap"></i></div>
                         <div class="project-info">
                             <h3>Academic Journey</h3>
@@ -54,7 +56,7 @@
                                 foundation.</p>
                         </div>
                     </div>
-                    <div class="project-card" data-aos="fade-up" data-aos-delay="100" id="skills-card">
+                    <div class="project-card" data-aos="fade-up" data-aos-delay="100" id="skills-card" data-tilt>
                         <div class="project-img project-gradient-2"><i class="fas fa-cogs"></i></div>
                         <div class="project-info">
                             <h3>Skills & Proficiencies</h3>
@@ -62,7 +64,7 @@
                             </p>
                         </div>
                     </div>
-                    <div class="project-card" data-aos="fade-up" data-aos-delay="200" id="extracurricular-card">
+                    <div class="project-card" data-aos="fade-up" data-aos-delay="200" id="extracurricular-card" data-tilt>
                         <div class="project-img project-gradient-3"><i class="fas fa-trophy"></i></div>
                         <div class="project-info">
                             <h3>Extracurriculars</h3>
@@ -71,10 +73,8 @@
                         </div>
                     </div>
                     
-                    <!-- START OF CHANGE -->
-                    <!-- The professional membership card is now wrapped in a div -->
                     <div class="professional-membership-wrapper" data-aos="fade-up">
-                        <div class="project-card">
+                        <div class="project-card" data-tilt>
                             <div class="project-img project-gradient-4"><i class="fas fa-sitemap"></i></div>
                             <div class="project-info">
                                 <h3>Professional Memberships</h3>
@@ -83,8 +83,6 @@
                             </div>
                         </div>
                     </div>
-                    <!-- END OF CHANGE -->
-
                 </div>
             </div>
         </section>
@@ -129,7 +127,7 @@
                             <label for="message" class="visually-hidden">Your Message</label>
                             <textarea id="message" name="message" placeholder="Your Message" required></textarea>
                             
-                            <button type="submit" class="btn">Send Message</button>
+                            <button type="submit" class="btn">Send Message <span class="btn-arrow">→</span></button>
                         </form>
                     </div>
                 </div>
@@ -313,6 +311,7 @@
     
     <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vanilla-tilt@1.7.2/dist/vanilla-tilt.min.js"></script>
     <script src="main.js"></script>
 
 </body>

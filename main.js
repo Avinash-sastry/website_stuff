@@ -3,6 +3,40 @@
    ========================================================================== */
 (function() {
 
+
+    /* ==========================================================================
+       PAGE TRANSITION LOGIC (NEW)
+       ========================================================================== */
+    window.addEventListener('load', () => {
+        const transitionScreen = document.querySelector('.transition-screen');
+        if (transitionScreen) {
+            transitionScreen.classList.add('is-active');
+        }
+    });
+
+    const allLinks = document.querySelectorAll('a:not([target="_blank"]):not([href*="#"])');
+
+    allLinks.forEach(link => {
+        link.addEventListener('click', e => {
+            // Check if it's a link to a file (like a PDF) and ignore it for transitions
+            if (link.href.match(/\.(pdf|jpg|jpeg|png|gif)$/i)) {
+                return;
+            }
+
+            e.preventDefault();
+            const transitionScreen = document.querySelector('.transition-screen');
+            const destination = link.href;
+            
+            if (transitionScreen) {
+                transitionScreen.classList.remove('is-active');
+            }
+            
+            setTimeout(() => {
+                window.location.href = destination;
+            }, 500); // Match this duration to the CSS transition time
+        });
+    });
+
     /* ==========================================================================
        Theme Toggle Logic
        ========================================================================== */
@@ -65,7 +99,6 @@
         const card = document.getElementById(cardId);
         const modal = document.getElementById(modalId);
 
-        // If either element doesn't exist, exit the function
         if (!card || !modal) return;
 
         const closeButton = modal.querySelector('.close-button');
@@ -81,12 +114,10 @@
         }
     }
 
-    // Set up all modals
     setupModal('academic-card', 'academic-modal');
     setupModal('skills-card', 'skills-modal');
     setupModal('extracurricular-card', 'extracurricular-modal');
 
-    // Close modal when clicking outside of the content
     window.onclick = (event) => {
         if (event.target.classList.contains('modal')) {
             event.target.style.display = 'none';
@@ -103,20 +134,17 @@
         if (e.key === konamiCode[konamiIndex]) {
             konamiIndex++;
             if (konamiIndex === konamiCode.length) {
-                // Check if confetti function is available
                 if (typeof confetti !== 'undefined') {
                     confetti({
                         particleCount: 150,
                         spread: 90,
-                        origin: {
-                            y: 0.6
-                        }
+                        origin: { y: 0.6 }
                     });
                 }
-                konamiIndex = 0; // Reset for next time
+                konamiIndex = 0;
             }
         } else {
-            konamiIndex = 0; // Reset if the sequence is broken
+            konamiIndex = 0;
         }
     });
 
@@ -126,7 +154,6 @@
        ========================================================================== */
     const contactForm = document.getElementById('contact-form');
 
-    // Only add the event listener if the form exists on the current page
     if (contactForm) {
         contactForm.addEventListener('submit', function(event) {
             event.preventDefault();
@@ -142,7 +169,6 @@
                 }
             }).then(response => {
                 if (response.ok) {
-                    // Redirect to the thank you page on success
                     window.location.href = '/thank-you.html';
                 } else {
                     response.json().then(data => {
@@ -159,5 +185,20 @@
             });
         });
     }
+
+
+    /* ==========================================================================
+       3D TILT EFFECT INITIALIZATION (NEW)
+       ========================================================================== */
+    // Check if the VanillaTilt library is loaded before trying to use it
+    if (typeof VanillaTilt !== 'undefined') {
+        VanillaTilt.init(document.querySelectorAll(".project-card"), {
+            max: 15,        // Max tilt rotation (degrees)
+            speed: 400,     // Speed of the enter/exit transition
+            glare: true,    // If it should have a "glare" effect
+            "max-glare": 0.5 // The glare opacity (0.5 = 50%)
+        });
+    }
+
 
 })(); // End of IIFE
