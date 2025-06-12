@@ -166,34 +166,66 @@ body:not(.hero-image-active) header {
     justify-self: start;
     text-decoration: none;
     color: var(--text);
+    position: relative; /* Required for pseudo-elements */
 }
 
-.typewriter {
-    display: inline-block;
+/* New Glitch Effect Styles */
+.logo::before,
+.logo::after {
+    content: attr(data-text);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: var(--background); /* Use variable for dark/light mode compatibility */
     overflow: hidden;
-    border-right: .15em solid var(--accent);
-    white-space: nowrap;
-    letter-spacing: .1em;
-    animation: typing 2s steps(14, end), blink-caret .75s step-end infinite;
+    clip-path: inset(50% 50% 50% 50%);
 }
 
-@keyframes typing {
-    from { width: 0 }
-    to { width: 100% }
+.logo::before {
+    left: -2px;
+    text-shadow: 1px 0 var(--accent);
 }
 
-@keyframes blink-caret {
-    from, to { border-color: transparent }
-    50% { border-color: var(--accent); }
+.logo::after {
+    left: 2px;
+    text-shadow: -1px 0 #ff00c1; /* A secondary, vibrant glitch color */
 }
 
-body.hero-image-active header:not(.scrolled) .typewriter {
-    border-right-color: white;
+/* Trigger animations on hover */
+.logo:hover::before,
+.logo:hover::after {
+    animation: glitch 0.4s linear infinite;
+}
+.logo:hover::after {
+    animation-direction: reverse;
 }
 
-body.hero-image-active.dark-mode header:not(.scrolled) .typewriter {
-    border-right-color: var(--accent);
+@keyframes glitch {
+    0% { clip-path: inset(45% 0 35% 0); }
+    5% { clip-path: inset(50% 0 10% 0); }
+    10% { clip-path: inset(20% 0 65% 0); }
+    15% { clip-path: inset(80% 0 5% 0); }
+    20% { clip-path: inset(30% 0 40% 0); }
+    25% { clip-path: inset(55% 0 25% 0); }
+    30% { clip-path: inset(10% 0 80% 0); }
+    35% { clip-path: inset(70% 0 15% 0); }
+    40% { clip-path: inset(35% 0 50% 0); }
+    45% { clip-path: inset(90% 0 2% 0); }
+    50% { clip-path: inset(25% 0 70% 0); }
+    55% { clip-path: inset(60% 0 30% 0); }
+    60% { clip-path: inset(5% 0 90% 0); }
+    65% { clip-path: inset(75% 0 10% 0); }
+    70% { clip-path: inset(40% 0 45% 0); }
+    75% { clip-path: inset(15% 0 75% 0); }
+    80% { clip-path: inset(65% 0 20% 0); }
+    85% { clip-path: inset(45% 0 35% 0); }
+    90% { clip-path: inset(2% 0 95% 0); }
+    95% { clip-path: inset(50% 0 10% 0); }
+    100% { clip-path: inset(70% 0 20% 0); }
 }
+
 
 nav {
     justify-self: center;
