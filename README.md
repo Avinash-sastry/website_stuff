@@ -66,10 +66,10 @@ The project is organized with a clean and intuitive file structure.
 │
 ├── 📄 style.css              # All styles for the website
 ├── 📄 main.js                # All JavaScript functionality
+│── 📄 not-gate-cursor.svg # Custom cursor image
+│── 📄 hero-image.jpg      # Background image for the hero section
+├
 │
-├── 📂 Image/
-│   ├── 📄 not-gate-cursor.svg # Custom cursor image
-│   └── 📄 hero-image.jpg      # Background image for the hero section
 │
 ├── 📂 reports/                # PDF reports for projects
 │   └── ...
