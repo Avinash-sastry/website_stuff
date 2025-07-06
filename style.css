@@ -710,6 +710,56 @@ footer {
 
 
 /* ==========================================================================
+   WORK IN PROGRESS CARD STYLES (NEW)
+   ========================================================================== */
+.wip-card .project-info {
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.wip-progress-bar {
+    width: 80%;
+    height: 10px;
+    background-color: rgba(128, 128, 128, 0.2);
+    border-radius: 5px;
+    overflow: hidden;
+    margin-top: auto; /* Pushes it down */
+    margin-bottom: 0.5rem;
+}
+
+.wip-progress {
+    width: 100%;
+    height: 100%;
+    background: repeating-linear-gradient(
+        -45deg,
+        var(--accent),
+        var(--accent) 10px,
+        rgba(255, 255, 255, 0.25) 10px,
+        rgba(255, 255, 255, 0.25) 20px
+    );
+    background-size: 200% 200%;
+    animation: wip-slide 10s linear infinite;
+}
+
+.wip-text {
+    margin-top: 0.5rem;
+    margin-bottom: 0; /* Remove default paragraph margin */
+    font-style: italic;
+    opacity: 0.7;
+}
+
+@keyframes wip-slide {
+    0% {
+        background-position: 0% 50%;
+    }
+    100% {
+        background-position: 100% 50%;
+    }
+}
+
+
+/* ==========================================================================
    Utility & Media Queries
    ========================================================================== */
 
