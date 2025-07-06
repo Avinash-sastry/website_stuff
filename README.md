@@ -61,6 +61,7 @@ The project is organized with a clean and intuitive file structure.
 /
 ├── 📄 index.html             # Main landing page
 ├── 📄 projects.html          # Projects showcase page
+├── 📄 internships.html       # Internships Showcase page
 ├── 📄 certifications.html    # Certifications page
 ├── 📄 thank-you.html         # Contact form submission success page
 │
